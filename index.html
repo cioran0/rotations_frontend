@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Rotation Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="smallLogo">NBA <span>ROTATIONS</span></div>
+    <header>
+        <div class="logo">NBA <span>ROTATIONS</span></div>
+        
+        <div class="controls-container">
+            <div class="search-group">
+                <input type="text" id="playerSearch" placeholder="Player Name (e.g. Stephen Curry)" style="width:250px;">
+                <button id="playerBtn">Search</button>
+            </div>
+
+            <div class="divider">OR</div>
+
+            <div class="search-group">
+                <select id="teamSelect" style="width:160px;">
+                    <option value="" disabled selected>1. Pick Team</option>
+                </select>
+                
+                <input type="number" id="yearInput" min="2002" max="2022" value="2022" placeholder="Year" style="width:70px;">
+                
+                <select id="monthSelect" style="width:120px;" disabled>
+                    <option value="" disabled selected>2. Month</option>
+                </select>
+
+                <select id="gameSelect" style="width:200px;" disabled>
+                    <option value="" disabled selected>3. Select Game</option>
+                </select>
+                
+                <button id="loadGameBtn" disabled>Load Game</button>
+            </div>
+        </div>
+    </header>
+    <div id="rotatePhone"><h2>Rotate phone for best viewing ⟳</h2></div>
+    <div id="mobileDate">Date of Game:</div>
+    <div class="dashboard-container">
+
+        <aside class="sidebar">
+            <div class="card" id="home-stats-card">
+                <div class="empty-state">Select a Team or Search a Player.</div>
+            </div>
+            <div class="card" id="game-stats-card">
+                </div>
+        </aside>
+
+        <main class="chart-area">  
+            <div class="nav-arrows-container">
+        <a href="#" id="prevGameBtn" class="nav-arrow" aria-label="Previous Game">
+            <svg width="50px" height="50px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 55,25 Q 35,22 25,22 L 25,14 Q 24,12 22,13 C 18,18 10,28 6,31 Q 5,32 6,33 C 10,36 18,46 22,51 Q 24,52 25,50 L 25,42 Q 35,42 55,39 Q 58,38 58,32 Q 58,26 55,25 Z" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+
+        <a href="#" id="nextGameBtn" class="nav-arrow" aria-label="Next Game">
+            <svg width="50px" height="50px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 9,25 Q 29,22 39,22 L 39,14 Q 40,12 42,13 C 46,18 54,28 58,31 Q 59,32 58,33 C 54,36 46,46 42,51 Q 40,52 39,50 L 39,42 Q 29,42 9,39 Q 6,38 6,32 Q 6,26 9,25 Z" fill="#000000" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+            <div id="legend" class="legend-container"></div>
+            <div id="chart">
+                <div class="welcome-message">
+                    <h3>Welcome to the Rotation Viewer</h3>
+                    <p>Select a specific game above to see the full rotation chart.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
